@@ -1,6 +1,11 @@
 [Problem Statement](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 
 ## Approach 1 :- Using queue
+- 1 First push the root node in queue.
+- 2 Maintain the variable for queue size.
+- 3 Pop the front and push its left and right if exist.
+- 4 Follow the 4th above steps(2 & 3) until the queue is empty.
+- Note :- When popping the element, push it in array and then push that array in 2D array (To store level order traversal)
 
 ```cpp
 class Solution {

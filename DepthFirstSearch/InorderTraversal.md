@@ -22,6 +22,12 @@ public:
 
 ## Approach 2 :- Using stack
 
+- 1 Push the root node to stack.
+- 2 Iterate to the left and push the element until root->left != nullptr .
+- 3 When we encounter nullptr, pop the top and assign stack's top element right to current node.
+- 4 If again it is empty,pop the stack's top and assign its right to current and if not,iterate to left until nullptr.
+- Note :- When popping, we can store the element in output array or we can print directly
+
 ```cpp
 class Solution {
 public:

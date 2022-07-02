@@ -1,5 +1,7 @@
 [Problem Statement](https://leetcode.com/problems/implement-strstr/)
 
+[Use it for more approaches](https://alkeshghorpade.me/post/leetcode-implement-strstr)
+
 ## Approach 1[Brute Force] :- In this approach, we simply iterate the haystack using for loop and use inner loop for iterating needle and check if i and j's position value are equal or not.
 
 

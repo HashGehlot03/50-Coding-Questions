@@ -39,6 +39,34 @@ public:
 - In case of even length, center is two element.
 
 ```cpp
-// Time Complexity - O(N*2)           Space Complexity - O(N)
-
+// Time Complexity - O(N^2)           Space Complexity - O(1)
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        if(n < 2) return s;
+        int max_len = 1;
+        int start = 0;
+        int low,high;
+        for(int i=0;i<n;i++)
+        {
+            low = i-1;
+            high = i+1;
+            while(high < n && s[high] == s[i]) high++;
+            while(low >=0 && s[low] == s[i]) low--;
+            while(high < n && low>=0 && s[low] == s[high])
+            {
+                low--;
+                high++;
+            }
+            int len = high-low-1;
+            if(len > max_len)
+            {
+                max_len = len;
+                start = low + 1;
+            }
+        }
+        return s.substr(start,max_len);
+    }
+};
 ```

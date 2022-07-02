@@ -70,3 +70,63 @@ public:
     }
 };
 ```
+
+## Approach 3[Dynamic Programming] :- In these, we use table [2D array] to store each substring's palindrome check. If substring is palindrome, we mark that cell's value with 1 else 0.
+- Table is of size n x n where n is the size of string.
+- i for row and j for column.
+- for example s[i][j] means substring from index i to j. E.g. s = "Harish"     s[3][5] = "ish"
+- As we also know that single element is palindrome itself. E.g. cell indices are [i,j] = [0,0], [1,1], [2,2], [3,3] ........
+- We also decide the palindrome condtion in substring containing 2 element, if both element are equal mark cell with 1 else 0. E.g. cell indices are [i,j+1] = [0,1], [1,2], [2,3], [3,4], [4,5] .........
+- On the basis of previously filled values, we'll fill the remaining cells.
+
+Table Example :-   example string = "abaabc"            
+                                                           0   1  2  3  4  5
+                                                       0 [ 1, 0, 0, 0, 0, 0]
+                                                       1 [ 0, 1, 0, 0, 0, 0]
+                                                       2 [ 0, 0, 1, 1, 0, 0]
+                                                       3 [ 0, 0, 0, 1, 0, 0]
+                                                       4 [ 0, 0, 0, 0, 1, 0]
+                                                       5 [ 0, 0, 0, 0, 0, 1]
+
+Now for remaining cells - 
+                            if str[i] == str[j] && table[i+1][j-1] == 1
+```cpp
+// Time Complexity - O(N^2)                 Space Complexity - O(N)
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        bool table[n][n];
+        memset(table,0,sizeof(table));
+        int max_len = 1;
+        for(int i=0;i<n;i++) table[i][i] = true;
+        
+        int start = 0;
+        for(int i=0;i<n-1;i++)
+        {
+            if(s[i] == s[i+1])
+            {
+                table[i][i+1] = true;
+                start = i;
+                max_len = 2;
+            }
+        }
+        for(int k=3;k<=n;k++)
+        {
+            for(int i=0;i<n-k+1;i++)
+            {
+                int j = i+k-1;
+                if(table[i+1][j-1] && s[i] == s[j])
+                {
+                    table[i][j] = true;
+                    if(k > max_len){
+                        start = i;
+                        max_len = k;
+                    }
+                }
+            }
+        }
+        return s.substr(start,start+max_len-1);
+    }
+};
+```

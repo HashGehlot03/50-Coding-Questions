@@ -2,7 +2,7 @@
 
   ## List of Problems :pill:
 
-- Find pair that sums upto K.
+:diamond_shape_with_a_dot_inside: Find pair that sums upto K.
 - First repeating character.
 - Remove duplicates.
 - Find Duplicate.

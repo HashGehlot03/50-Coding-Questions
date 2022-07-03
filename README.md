@@ -1,6 +1,6 @@
 # 50 Coding Questions :exclamation:
 
-  ## List of Problems
+  ## List of Problems :pill:
 
 - Find pair that sums upto K.
 - First repeating character.

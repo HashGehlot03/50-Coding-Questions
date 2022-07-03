@@ -1,8 +1,6 @@
-# 50 Coding Questions   
-            <i class="devicon-crystal-original"></i>
-          
+# 50 Coding Questions   ![Code](https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css)
 
-## List of Problems
+  ## List of Problems
 
 - Find pair that sums upto K.
 - First repeating character.

@@ -1,4 +1,4 @@
-# 50 Coding Questions   ![Code](https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css)
+# 50 Coding Questions   
 
   ## List of Problems
 

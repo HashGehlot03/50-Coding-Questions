@@ -3,7 +3,9 @@
   ## List of Problems :pill:
 
 :diamond_shape_with_a_dot_inside: Find pair that sums upto K.
+
 :diamond_shape_with_a_dot_inside: First repeating character.
+
 :diamond_shape_with_a_dot_inside: Remove duplicates.
 :diamond_shape_with_a_dot_inside: Find Duplicate.
 :diamond_shape_with_a_dot_inside: Depth First Search(Preorder,Inorder,Postorder), Breadth First Search (Levelorder) in Binary Tree.

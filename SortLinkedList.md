@@ -29,6 +29,7 @@ public:
 ## Approach 2 :- Merge sort the linked list. In merge sort of linked list, for breaking in 2 halves, we iterate the linked list using slow and fast pointer upto middle and then assign slow->next to null and create new head of slow->next.
 
 ```cpp
+// Time Complexity - O(NlogN)      logN is finding middle and working on half everytime and n for searching.
 class Solution {
 public:
     ListNode* mergeSortedLists(ListNode* head1, ListNode* head2){

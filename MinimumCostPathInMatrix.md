@@ -32,6 +32,7 @@ class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
         int m = grid.size();
+        if(m == 0) return 0;
         int n = grid[0].size();
         int costs[m][n];
         costs[0][0] = grid[0][0];

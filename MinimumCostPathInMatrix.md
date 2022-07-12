@@ -31,24 +31,33 @@ In the approach 1, we are repeating some cells in each recursion ,so to overcome
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
-        int m = grid.size();
-        if(m == 0) return 0;
-        int n = grid[0].size();
-        int costs[m][n];
-        costs[0][0] = grid[0][0];
-        for(int i=1;i<n;i++)
-        {
-            costs[0][i] = costs[0][i-1] + grid[0][i];
-        }
-        for(int i=1;i<m;i++)
-        {
-            costs[i][0] = costs[i-1][0] + grid[i][0];
-        }
-        for(int i = 1; i < n; i++)
-            for(int j = 1; j < m; j++)
-                costs[i][j] = min(costs[i-1][j], costs[i][j-1]) + grid[i][j];
+        // //Fast I/O in C++
+        // ios_base::sync_with_stdio(false);
+        // cin.tie(NULL);
         
-        return costs[m-1][n-1];
+        int rows = grid.size();
+        if(rows==0)
+            return 0;
+        int cols = grid[0].size();
+        vector<vector<int>> costs(rows,vector<int>(cols,0));
+        int i,j;
+        
+        costs[0][0] = grid[0][0];  //1st element is starting point
+        //Fill 1st row
+        for(i=1;i<cols;++i)
+            costs[0][i] = costs[0][i-1] + grid[0][i];
+        
+        //Fill 1st Col
+        for(i=1;i<rows;++i)
+            costs[i][0] = costs[i-1][0] + grid[i][0];
+        
+        //Now fill the rest of the cell
+        for(i=1;i<rows;++i)
+        {
+            for(j=1;j<cols;++j)
+                costs[i][j] = grid[i][j] + min(costs[i-1][j],costs[i][j-1]);
+        }
+        return costs[rows-1][cols-1];
     }
 };
 ```

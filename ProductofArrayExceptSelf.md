@@ -24,7 +24,15 @@ public:
 };
 ```
 
-## Approach 2 
+
+## Approach 2 [Optimized] :- In this approach, we'll calcualte array of cumulativeFromLeft and cumulativeFromRight.
+- cumulativeFromLeft : 1) assign cumulativeFromLeft[0][0] = 1
+                       2) cumulativeFromLeft[i] = cumulativeFromLeft[i-1] * nums[i-1]; i++
+- cumulativeFromRight: 1) assign cumulativeFromRight[n-1] = 1;
+                       2) cumulativeFromRight[i] = cumulativeFromRight[i+1] + arr[i+1]; i--
+
+Now multiply both array's corresponding element
+  
 
 ```cpp
 // Time Complexity - O(N)          Space Complexity - O(1)
@@ -47,6 +55,6 @@ public:
             output.push_back(cumulativeFromLeft[i] * cumulativeFromRight[i]);
 
           return output;
-}
+    }
 };
 ```

@@ -3,19 +3,30 @@
 - String containig n characters has 2^n subsequences
 
 ```cpp
-void getSubsequencesRec(string str, int i, string subsequence, vector<string> &subsequences){
-  if(i == str.size()){
-    subsequences.push_back(subsequence);
-  }else{
-    getSubsequencesRec(str, i+1, subsequence+str.at(i), subsequences);
-    getSubsequencesRec(str, i+1, subsequence, subsequences);
-  }
+
+// This function is for generating subsequences of integer array but it works same for string subsequences
+void generateSubseq(int i, vector<int> &output, vector<int> &arr)
+{
+    // Time Complexity - O(2^N)
+    if (i == arr.size())
+    {
+        for (auto it : output)
+            cout << it << " ";
+        cout << endl;
+        return;
+    }
+    output.push_back(arr[i]);
+    generateSubseq(i + 1, output, arr);
+    output.pop_back();
+    generateSubseq(i + 1, output, arr);
 }
 
-vector<string> getSubsequences(string str){
-  vector<string> subsequences;
-  getSubsequencesRec(str, 0, "", subsequences);
-  return subsequences;
+int main()
+{
+    vector<int> arr = {1, 2, 3, 4};
+    vector<int> ds;
+    generateSubseq(0, ds, arr);
+    return 0;
 }
 
 ```
